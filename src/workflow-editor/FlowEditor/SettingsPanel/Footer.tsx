@@ -11,6 +11,7 @@ const Shell = styled.div`
 `
 
 export const Footer = memo((props: {
+  loading:boolean,
   onConfirm: () => void,
   onCancel: () => void
 }) => {
@@ -22,7 +23,7 @@ export const Footer = memo((props: {
         <Button onClick={onCancel}>
           {t("cancel")}
         </Button>
-        <Button type="primary" onClick={onConfirm}>
+        <Button type="primary"  loading={props.loading} onClick={onConfirm}>
           {t("confirm")}
         </Button>
       </Space>

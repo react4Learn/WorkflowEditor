@@ -1,4 +1,5 @@
 import { IWorkFlowNode, NodeType } from "./workflow"
+import {Ref} from "react";
 
 //国际化翻译函数，外部注入，这里使用的是@rxdrag/locales的实现（通过react hooks转了一下）
 export type Translate = (msg: string) => string | undefined
@@ -30,7 +31,7 @@ export interface IMaterialUI<FlowNode extends IWorkFlowNode, Config = any, Conte
   //节点内容区
   viewContent?: (node: FlowNode, context: Context) => React.ReactNode
   //属性面板设置组件
-  settersPanel?: React.FC<{ value: Config, onChange: (value: Config) => void }>
+  settersPanel?: React.FC<{ onRef?: Ref<any>,value: Config, onChange: (value: Config) => void }>
   //校验失败返回错误消息，成功返回ture
   validate?: (node: FlowNode, context: Context) => string | true | undefined
 }
